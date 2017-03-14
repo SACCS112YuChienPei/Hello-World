@@ -32,20 +32,27 @@ public class GameRPS {
     int nuwin = 0;
     int ntie = 0;
     int count = 0;
+    //int check = 1;
     System.out.println("Let's start the Rock, Paper, Scissors game!");
     System.out.println("Please enter the total number of times you want to play the game.");
     niter = scanner.nextInt();
     while (count < niter)
     {
-    System.out.println("Please enter your choice from one of the following three numbers: 0 = Rock; 1 = Paper, 2 = Scissors.");
-    choiceUser = scanner.nextInt();
-    if (choiceUser < 0 || choiceUser > 2)
-    { 
+        //while (check == 1)
+        //{
+        System.out.println("Please enter your choice from one of the following three numbers: 0 = Rock; 1 = Paper, 2 = Scissors.");
+        choiceUser = scanner.nextInt();
+        while(choiceUser < 0 || choiceUser > 2)
+            { 
         //System.out.println("You have made an invalid choice.  Please try again by selecting any of the following: 0, 1 or 2.");
-        System.out.println("You have made an invalid choice.  Program ending.");
-        System.exit(0);
+        System.out.println("You have made an invalid choice.  Please try again.");
+        System.out.println("Please enter your choice from one of the following three numbers: 0 = Rock; 1 = Paper, 2 = Scissors.");
+        choiceUser = scanner.nextInt();
+        //System.exit(0);
         //count--;
-    }
+            }
+        //check = 1;
+        //}
     choiceComp = random.nextInt(3);
     if (choiceUser == choiceComp)//when both choose the same, the computer is to inform the user
     {
@@ -117,7 +124,7 @@ public class GameRPS {
     
     }
     scanner.close();
-    System.out.printf("%n You have played %d", niter);
+    System.out.printf("%n Game is over. You have played %d", niter);
     System.out.print(" times.");
     System.out.printf("%n You have won %d", nuwin);
     System.out.print(" times.");
